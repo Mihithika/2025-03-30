@@ -1,15 +1,15 @@
 console.log("JS");
-
-function loadCountries() {
+     let  countriesArrayList = [];  
+     let index = 0;   
+function loadCountries(index) {
     let countriesList = document.getElementById("countriesList");
-    let index = 0;
     let body = "";
 
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("/countries.json")
         .then(res => res.json())
         .then(dataList => {
             countriesArrayList = dataList;
-            loadModalData();
+            loadModalData(index);
             dataList.forEach((element, index) => {
 
                 body += `
@@ -72,4 +72,4 @@ function Search(params) {
 
 
 
-loadCountries();
+loadCountries(index);
